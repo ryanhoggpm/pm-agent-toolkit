@@ -21,7 +21,7 @@ I built these skills for my own job running a network infrastructure product lin
 | `hiring-manager` | Full-cycle hiring: JDs, screens, interview kits, decisions | **Live** |
 | `delegate-to-ollama` | Route drafting work to a local LLM | **Live** |
 | `creative-agency` | Simulated buyer focus group for marketing drafts | **Live** |
-| `sales-analyst` | Multi-year sales data analysis with portfolio recommendations | Planned |
+| `sales-analyst` | Multi-year sales data analysis with portfolio recommendations | **Live** |
 | `security-inquiry-response` | Formal risk posture statements for CVE/scanner inquiries | Planned |
 | `delivery-review` | AI product owner: engineering delivery vs committed scope | Planned |
 | `business-case-gate` | Phase-gate business feasibility documents | Planned |
