@@ -22,6 +22,7 @@ I built these skills for my own job running a network infrastructure product lin
 | `delegate-to-ollama` | Route drafting work to a local LLM | **Live** |
 | `creative-agency` | Simulated buyer focus group for marketing drafts | **Live** |
 | `sales-analyst` | Multi-year sales data analysis with portfolio recommendations | **Live** |
+| `html-render` | Renders finished content as self-contained branded HTML | **Live** |
 | `security-inquiry-response` | Formal risk posture statements for CVE/scanner inquiries | Planned |
 | `delivery-review` | AI product owner: engineering delivery vs committed scope | Planned |
 | `business-case-gate` | Phase-gate business feasibility documents | Planned |
