@@ -1,0 +1,17 @@
+name: quality
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  gates:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Provenance gate
+        run: bash scripts/check-provenance.sh
+      - name: Company-marker gate
+        run: bash scripts/check-markers.sh
+      - name: Skill lint
+        run: bash scripts/lint-skills.sh
