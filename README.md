@@ -26,6 +26,7 @@ I built these skills for my own job running a network infrastructure product lin
 | `tech-writer` | Workflow-focused technical docs: release notes, guides, demo scripts | **Live** |
 | `security-inquiry-response` | Formal risk posture statements for CVE/scanner inquiries | Planned |
 | `delivery-review` | AI product owner: engineering delivery vs committed scope | **Live** |
+| `guerrilla-marketing-agent` | Weekly market sweep + content drafting on zero budget | **Live** |
 | `business-case-gate` | Phase-gate business feasibility documents | Planned |
 | more... | | |
 
