@@ -25,7 +25,7 @@ I built these skills for my own job running a network infrastructure product lin
 | `html-render` | Renders finished content as self-contained branded HTML | **Live** |
 | `tech-writer` | Workflow-focused technical docs: release notes, guides, demo scripts | **Live** |
 | `security-inquiry-response` | Formal risk posture statements for CVE/scanner inquiries | Planned |
-| `delivery-review` | AI product owner: engineering delivery vs committed scope | Planned |
+| `delivery-review` | AI product owner: engineering delivery vs committed scope | **Live** |
 | `business-case-gate` | Phase-gate business feasibility documents | Planned |
 | more... | | |
 
