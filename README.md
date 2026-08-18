@@ -18,7 +18,7 @@ I built these skills for my own job running a network infrastructure product lin
 | `context-search` | Searches your prior work before you duplicate it | **Live** |
 | `api-review` | OpenAPI spec review: structure, security, requirements coverage | **Live** |
 | `bolt-dev` | Bolt.new frontend against a real API, graduating to production code | **Live** |
-| `hiring-manager` | Full-cycle hiring: JDs, screens, interview kits, decisions | Planned |
+| `hiring-manager` | Full-cycle hiring: JDs, screens, interview kits, decisions | **Live** |
 | `delegate-to-ollama` | Route drafting work to a local LLM | **Live** |
 | `creative-agency` | Simulated buyer focus group for marketing drafts | Planned |
 | `sales-analyst` | Multi-year sales data analysis with portfolio recommendations | Planned |
