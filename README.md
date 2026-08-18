@@ -34,7 +34,9 @@ Plus the system layer most skill collections skip:
 
 - **hooks/**: skill-usage logging, session-start context injection, post-compaction recovery
 - **rules/**: writing style enforcement, path-scoped rules, a data-sensitivity workflow
-- **docs/**: workspace setup, skill authoring standard, the self-learning loop
+- **docs/**: workspace setup, skill authoring standard, the self-learning loop, and the [platform-diagnostic pattern](docs/platform-diagnostic-pattern.md), a design for read-only state-of-the-platform skills you build against your own stack
+
+**Pairs well with:** [PleasePrompto/notebooklm-skill](https://github.com/PleasePrompto/notebooklm-skill) (third-party, MIT) for source-grounded Q&A over document sets you've loaded into NotebookLM. Install it from upstream; it's not vendored here because it isn't my work and it manages its own local auth state.
 
 ## Quickstart
 
