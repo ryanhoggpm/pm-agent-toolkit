@@ -14,7 +14,7 @@ I built these skills for my own job running a network infrastructure product lin
 
 | Skill | What it does | Status |
 |---|---|---|
-| `create-skill` | Scaffolds new skills to this repo's authoring standard | In progress |
+| `create-skill` | Scaffolds new skills to this repo's authoring standard | **Live** |
 | `context-search` | Searches your prior work before you duplicate it | Planned |
 | `api-review` | OpenAPI spec review: structure, security, requirements coverage | Planned |
 | `bolt-dev` | Bolt.new frontend against a real API, graduating to production code | Planned |
