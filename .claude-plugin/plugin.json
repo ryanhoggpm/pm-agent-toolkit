@@ -1,0 +1,13 @@
+{
+  "name": "pm-agent-toolkit",
+  "displayName": "PM Agent Toolkit",
+  "description": "Claude Code skills for the technical PM: API review, security inquiry response, delivery review, business-case gates, simulated buyer panels, and the system layer (hooks, rules) to run them.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Ryan Hogg",
+    "url": "https://github.com/ryanhoggpm"
+  },
+  "homepage": "https://github.com/ryanhoggpm/pm-agent-toolkit",
+  "repository": "https://github.com/ryanhoggpm/pm-agent-toolkit",
+  "license": "MIT"
+}
