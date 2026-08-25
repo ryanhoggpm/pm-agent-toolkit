@@ -4,7 +4,7 @@ A design pattern for a read-only skill that answers "where does our platform act
 
 ## The problem it solves
 
-The origin case (anonymized): on an exec call, nobody could answer how many devices the SaaS platform actually had under management versus merely enrolled. The honest answer was "2-3 days of manual digging by the one backend engineer." No analytics tooling existed inside the platform itself. A recurring read-only diagnostic skill became the stopgap, and turned out to be worth keeping: a dated snapshot every two weeks makes drift visible in a way ad hoc queries never do.
+A question every B2B SaaS team eventually gets from leadership: how much of what's provisioned is actually in use? Licensed seats versus active users, enrolled devices versus devices doing real work, connected integrations versus integrations that ran this month. In young platforms the honest answer is often days of manual digging, because product analytics either doesn't exist yet or only instruments the web frontend while the real activity lives in APIs, agents, and background jobs. A recurring read-only diagnostic skill is the stopgap that turns out to be worth keeping: dated snapshots on a standing cadence make drift visible in a way ad hoc queries never do.
 
 ## The seven design rules
 
@@ -12,7 +12,7 @@ The origin case (anonymized): on an exec call, nobody could answer how many devi
 
 **2. Mandatory blind-spot disclosure, every run, kept current.** State what the credentials cannot see and whether that's architectural (on-prem or network-isolated deployments no permission change reaches) or a pending permission ask (with its status: not sent / sent date / granted date). This section is never boilerplate; it updates each run. The failure it prevents is specific and expensive: a partial-visibility number getting quoted upward as a company-wide figure.
 
-**3. One metric formula, reused verbatim from its source of truth.** If your activity metric ("device under active management" or equivalent) is defined in a North Star or metrics doc, the skill quotes that formula rather than restating it. Two drifting definitions of the same metric are worse than none. If the source doc is missing or changed, the skill flags it and stops rather than inventing a formula.
+**3. One metric formula, reused verbatim from its source of truth.** If your activity metric ("active device," "weekly active seat," or equivalent) is defined in a North Star or metrics doc, the skill quotes that formula rather than restating it. Two drifting definitions of the same metric are worse than none. If the source doc is missing or changed, the skill flags it and stops rather than inventing a formula.
 
 **4. Dated snapshots, never overwritten.** Each run writes `<name>-YYYY-MM-DD.md` alongside its predecessors. The snapshots ARE the analytics layer; drift only becomes visible because prior runs still exist.
 

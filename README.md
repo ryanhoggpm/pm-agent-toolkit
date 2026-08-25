@@ -59,7 +59,13 @@ Then set up your workspace folders per [docs/workspace-setup.md](docs/workspace-
 
 ## What I learned
 
-(Filled in as waves ship.)
+Building this in public, out of a private workspace, taught me more than the skills themselves:
+
+- **Routing is the product.** A skill that doesn't trigger on the right request, and stay quiet on the wrong one, is dead weight no matter how good its workflow is. Every description here follows a what / when / when-NOT structure and gets smoke-tested against five prompts before it ships.
+- **Generalizing is the hard part.** Extracting a skill from daily use means separating the workflow, which is portable, from your company's facts, which aren't. The fictional companies in the worked examples aren't decoration; they're how internal specifics stay out of a public repo, and a CI marker check enforces it.
+- **The best sections describe what the skill can't do.** Failure shapes, blind-spot disclosures, "do NOT use for" lists. Reliability comes from designed failure, not from hoping the happy path holds.
+- **Dogfooding beats design.** panel-builder's sharpest rule, that a counter-case assigned to break a unanimous panel must end with a falsifiable test, came out of its first real session, not the drawing board. Ship the first version, run it on a real question, fold the friction back in.
+- **Treat prose like code.** Skills are instructions a model executes, so they get the same treatment code does: lint gates on descriptions and structure, provenance checks, marker scans, CI on every push.
 
 ## Credits
 
