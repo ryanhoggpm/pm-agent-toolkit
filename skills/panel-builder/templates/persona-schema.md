@@ -8,6 +8,11 @@ A member defined by a job title is a costume. A member defined by pains, trigger
 decision criteria produces reactions you couldn't have written yourself. That's the test:
 if you can predict everything this member will say, the definition is too thin.
 
+This schema is for advisory voices, members whose value is the argument itself. When a
+seat needs to verify claims against real files with its own tools before opining (a
+working specialist), build it with `/create-agent` instead; agents built there carry a
+panel-seat section and drop into a charter the same way.
+
 ## File format
 
 ```markdown
