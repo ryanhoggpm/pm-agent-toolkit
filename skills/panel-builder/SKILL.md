@@ -48,7 +48,8 @@ For each lens the job needs, check what's already installed before generating:
 | Engineering, security, ops, and similar practitioner lenses | The user's installed `.claude/agents/` collections and agent plugins |
 | Deep scientific/engineering domain rigor | Domain-expert profile libraries (e.g. K-Dense-AI/scientific-agents, installable as a plugin) |
 | Famous-expert flavor (board mode, only if asked) | Expert-persona libraries (e.g. K-Dense-AI/mimeographs); adapt, don't install-and-trust |
-| Product user personas, advisors, anything else | Generate per `templates/persona-schema.md` |
+| Working specialist no library covers (needs its own tools to verify claims against real files) | Build with `/create-agent`; its panel-seat section makes the agent dispatchable here and standalone |
+| Product user personas, advisory voices, board members | Generate per `templates/persona-schema.md` |
 
 3-6 members. Each needs a lens that conflicts with at least one other member's. If the
 user names a real living person as a model, confirm they want that; default to archetypes.

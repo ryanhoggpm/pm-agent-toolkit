@@ -1,0 +1,67 @@
+# Managed Agent configuration template (Claude API, beta)
+# Create with:   ant beta:agents create < this-file.yaml
+# Or POST the JSON equivalent to /v1/agents with the managed-agents beta header.
+# Docs: https://platform.claude.com/docs/en/managed-agents/agent-setup
+#
+# Design rules this template encodes:
+# - The system prompt carries the agent's identity and hard rules; the task arrives
+#   in user events. Don't bake a specific task into `system`.
+# - Permission policies follow least privilege: the agent toolset may run
+#   automatically, but bash and anything mutating starts as always_ask until the
+#   agent has earned autonomy on real runs. MCP toolsets default to always_ask;
+#   loosen per trusted server, never globally.
+# - Agents are versioned server-side. Update, don't recreate; supply `version` for
+#   optimistic concurrency when a human is editing.
+
+name: <Human-readable name>
+description: <One sentence: what this agent does, for your own registry.>
+
+model:
+  id: claude-sonnet-5        # step up to claude-opus-5 only if run quality demands it
+  effort: high               # low | medium | high | xhigh | max
+
+system: |
+  [Identity, 2-3 sentences with the experience that shapes judgment.]
+
+  ## Scope
+  [What it owns; explicit out-of-scope list; exactly what it may change if anything.]
+
+  ## Hard rules
+  [3-5 numbered rules with the failure each prevents.]
+
+  ## Output contract
+  [Exact result shape; what to return when the job can't be completed.]
+
+  ## Verification before returning
+  [Self-check checklist run before finishing.]
+
+  ## Panel seat
+  [Optimizes for / decision criteria / known bias, so an orchestrating coordinator
+  can dispatch this agent as a panel member and weigh its lean in synthesis.]
+
+tools:
+  - type: agent_toolset_20260401
+    default_config:
+      permission_policy:
+        type: always_allow
+    configs:
+      - name: bash
+        permission_policy:
+          type: always_ask        # promote to always_allow only after supervised runs
+  # For each MCP server, add a toolset entry; they default to always_ask, which is
+  # the right default for servers you don't control:
+  # - type: mcp_toolset
+  #   mcp_server_name: <name matching mcp_servers below>
+
+mcp_servers: []
+  # - type: url
+  #   name: <name>
+  #   url: https://...
+
+skills: []
+  # Attach domain skills rather than inflating the system prompt; skills load with
+  # progressive disclosure and keep the prompt focused on identity and rules.
+
+# multiagent:      # only on a coordinator; lists the agents it may delegate to.
+#   agents:
+#     - id: agent_...
