@@ -1,7 +1,7 @@
 {
   "name": "pm-agent-toolkit",
   "displayName": "PM Agent Toolkit",
-  "description": "Claude Code skills for the technical PM: API review, security inquiry response, delivery review, business-case gates, simulated buyer panels, and the system layer (hooks, rules) to run them.",
+  "description": "Claude Code skills for the technical PM: API review, delivery review, composable expert panels, agent design, simulated buyer focus groups, and the system layer (hooks, rules) to run them.",
   "version": "0.1.0",
   "author": {
     "name": "Ryan Hogg",

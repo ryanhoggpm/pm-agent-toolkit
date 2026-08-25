@@ -10,33 +10,32 @@ I built these skills for my own job running a network infrastructure product lin
 
 ## What's inside
 
-*Skills land in waves; this table tracks what's live.*
+*14 skills, all live. More land as they're generalized from daily use.*
 
-| Skill | What it does | Status |
-|---|---|---|
-| `create-skill` | Scaffolds new skills to this repo's authoring standard | **Live** |
-| `context-search` | Searches your prior work before you duplicate it | **Live** |
-| `api-review` | OpenAPI spec review: structure, security, requirements coverage | **Live** |
-| `bolt-dev` | Bolt.new frontend against a real API, graduating to production code | **Live** |
-| `hiring-manager` | Full-cycle hiring: JDs, screens, interview kits, decisions | **Live** |
-| `delegate-to-ollama` | Route drafting work to a local LLM | **Live** |
-| `creative-agency` | Simulated buyer focus group for marketing drafts | **Live** |
-| `sales-analyst` | Multi-year sales data analysis with portfolio recommendations | **Live** |
-| `html-render` | Renders finished content as self-contained branded HTML | **Live** |
-| `tech-writer` | Workflow-focused technical docs: release notes, guides, demo scripts | **Live** |
-| `security-inquiry-response` | Formal risk posture statements for CVE/scanner inquiries | Planned |
-| `delivery-review` | AI product owner: engineering delivery vs committed scope | **Live** |
-| `guerrilla-marketing-agent` | Weekly market sweep + content drafting on zero budget | **Live** |
-| `business-case-gate` | Phase-gate business feasibility documents | Planned |
-| `panel-builder` | Composable expert panels: charter a team once, run it forever | **Live** |
-| `create-agent` | Design working agents (Claude Code subagents or Managed Agents) that double as panel members | **Live** |
-| more... | | |
+| Skill | What it does |
+|---|---|
+| `api-review` | OpenAPI spec review: structure, security, requirements coverage |
+| `bolt-dev` | Bolt.new frontend against a real API, graduating to production code |
+| `context-search` | Searches your prior work before you duplicate it |
+| `create-agent` | Design working agents (Claude Code subagents or Managed Agents) that double as panel members |
+| `create-skill` | Scaffolds new skills to this repo's authoring standard |
+| `creative-agency` | Simulated buyer focus group for marketing drafts |
+| `delegate-to-ollama` | Route drafting work to a local LLM |
+| `delivery-review` | AI product owner: engineering delivery vs committed scope |
+| `guerrilla-marketing-agent` | Weekly market sweep + content drafting on zero budget |
+| `hiring-manager` | Full-cycle hiring: JDs, screens, interview kits, decisions |
+| `html-render` | Renders finished content as self-contained branded HTML |
+| `panel-builder` | Composable expert panels: charter a team once, run it forever |
+| `sales-analyst` | Multi-year sales data analysis with portfolio recommendations |
+| `tech-writer` | Workflow-focused technical docs: release notes, guides, demo scripts |
 
 Plus the system layer most skill collections skip:
 
 - **hooks/**: skill-usage logging, session-start context injection, post-compaction recovery
 - **rules/**: writing style enforcement, path-scoped rules, a data-sensitivity workflow
 - **docs/**: workspace setup, skill authoring standard, the self-learning loop, and the [platform-diagnostic pattern](docs/platform-diagnostic-pattern.md), a design for read-only state-of-the-platform skills you build against your own stack
+
+These skills get sharper with the right plugins, MCP servers, and agent libraries alongside them; [docs/companions.md](docs/companions.md) maps which companion unlocks what, skill by skill.
 
 **On `panel-builder`:** GitHub has no shortage of repos shipping 80, 163, or 500 agents. What none of them ship is the composition layer: a way to assemble a few of those agents, plus personas no library can define for you (your users, your advisors), around one question with defined success criteria. `panel-builder` is that layer. It charters a panel through a guided intake, sources members from whatever agent libraries you've installed before generating anything, and runs sessions in one of five interaction modes, from parallel specialist consults to a chaired board of directors that's required to argue with you. Panels it builds pair well with member libraries like [K-Dense-AI/scientific-agents](https://github.com/K-Dense-AI/scientific-agents) (500+ practitioner profiles, plugin-installable) and [K-Dense-AI/mimeographs](https://github.com/K-Dense-AI/mimeographs) (famous-expert voices; adapt rather than install-and-trust). Neither is vendored here; they're sourcing pools, not dependencies. And when no library covers a seat, `create-agent` builds the missing specialist to a standard (least-privilege tools, output contract with a failure shape, self-verification) that makes it useful standalone and as a panel member, one definition for both.
 
