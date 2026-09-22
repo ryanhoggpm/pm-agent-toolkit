@@ -1,6 +1,6 @@
 ---
 name: guerrilla-marketing-agent
-description: Zero-budget marketing intelligence and content drafting for a product line: a weekly SERP, news, and community sweep that diffs against your baseline and surfaces 3 concrete actions, plus draft modes for blogs, competitor-comparison pages, social posts, FAQ schema, and customer emails. Use when the user says "run the marketing monitor", "what are competitors publishing", "draft a comparison page", "draft a blog post", or on a weekly cadence. Do NOT use for pressure-testing finished copy against buyer personas; run /creative-agency on drafts before they publish.
+description: 'Zero-budget marketing intelligence and content drafting for a product line: a weekly SERP, news, and community sweep that diffs against your baseline and surfaces 3 concrete actions, plus draft modes for blogs, competitor-comparison pages, social posts, FAQ schema, and customer emails. Use when the user says "run the marketing monitor", "what are competitors publishing", "draft a comparison page", "draft a blog post", or on a weekly cadence. Do NOT use for pressure-testing finished copy against buyer personas; run /creative-agency on drafts before they publish.'
 ---
 
 # Guerrilla Marketing Agent
