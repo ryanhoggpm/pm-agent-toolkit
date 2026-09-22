@@ -1,0 +1,36 @@
+# Redaction substitutions, applied to every document during the build, whatever
+# format it arrived in. A guide redacted only because it happened to be a PDF is
+# the kind of inconsistency nobody notices until the unredacted copy is the one
+# that gets quoted.
+#
+# This is not the same file as redaction-patterns.yaml. This one rewrites text
+# during the build. That one is a gate that fails the upload. Keep both: a
+# substitution you forgot to write is exactly what the gate exists to catch.
+#
+# Every entry is a regex and its replacement. Fill in your own; the entries
+# below are shapes, with the reasoning kept because the reasoning transfers.
+
+redactions:
+  - re: 'password[ \t]*[:=][ \t]*[A-Za-z0-9@!#$%^&*]{4,}'
+    to: 'password: <password>'
+    why: >-
+      Vendor default credentials printed in a third-party guide are still working
+      credentials once the agent reads one aloud.
+
+  - re: '\b192\.168\.100\.(\d{1,3})\b'
+    to: '203.0.113.\1'
+    why: >-
+      Lab addressing becomes documentation addressing. RFC 5737 reserves
+      192.0.2.0/24, 198.51.100.0/24 and 203.0.113.0/24 for exactly this.
+
+  - re: '(?i)\bexample credential\b[:= ]+\S+'
+    to: 'example credential: <redacted>'
+    why: >-
+      An example credential reads as a real one when it arrives without the
+      paragraph that framed it as an example.
+
+  # A forward-looking sentence in a release note becomes a commitment once it is
+  # retrieved on its own. Delete rather than rewrite: an empty replacement is
+  # fine, and leaves nothing to misread.
+  # - re: '(?m)^.*\b(?:will be available|planned for) .*$\n?'
+  #   to: ''
