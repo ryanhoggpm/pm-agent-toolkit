@@ -42,5 +42,5 @@ The routing rule worth copying into your workspace: prefer the MCP when connecte
 
 ## Related, already in the README
 
-- [PleasePrompto/notebooklm-skill](https://github.com/PleasePrompto/notebooklm-skill) for source-grounded Q&A over document sets.
+- [PleasePrompto/notebooklm-skill](https://github.com/PleasePrompto/notebooklm-skill) for source-grounded Q&A over document sets. Complementary to `rag-agent-builder`, which prepares and verifies the corpus rather than querying it.
 - The `panel-builder` positioning notes on why the composition layer, not the agent count, is the thing worth shipping.

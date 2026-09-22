@@ -10,7 +10,7 @@ I built these skills for my own job running a network infrastructure product lin
 
 ## What's inside
 
-*14 skills, all live. More land as they're generalized from daily use.*
+*15 skills, all live. More land as they're generalized from daily use.*
 
 | Skill | What it does |
 |---|---|
@@ -26,6 +26,7 @@ I built these skills for my own job running a network infrastructure product lin
 | `hiring-manager` | Full-cycle hiring: JDs, screens, interview kits, decisions |
 | `html-render` | Renders finished content as self-contained branded HTML |
 | `panel-builder` | Composable expert panels: charter a team once, run it forever |
+| `rag-agent-builder` | Knowledge agents that can actually read their corpus: split, scan, verify reach, eval |
 | `sales-analyst` | Multi-year sales data analysis with portfolio recommendations |
 | `tech-writer` | Workflow-focused technical docs: release notes, guides, demo scripts |
 
