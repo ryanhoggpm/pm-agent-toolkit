@@ -1,0 +1,40 @@
+name: "Company marker scan"
+
+# Names that must not appear in a skill or document you intend to publish:
+# your employer, its products, its competitors, colleagues, internal hostnames
+# and internal directory names.
+#
+# This file is the one place they live. The scanner is generic, which is why
+# the skill itself carries no company in it.
+#
+# Fill in your own. The entries below are shapes.
+
+patterns:
+  - name: "employer or product name"
+    re: '\b(<YourCompany>|<ProductLine>|<ProductModel>)\b'
+    why: >-
+      The obvious one, and the one a rename quietly reintroduces. Include former
+      product names; old material outlives the decision to stop using them.
+
+  - name: "competitor name"
+    re: '\b(<Competitor1>|<Competitor2>)\b'
+    why: >-
+      Naming a competitor in an example dates the example and reads as a claim
+      about them.
+
+  - name: "colleague name"
+    re: '\b(<Firstname1>|<Firstname2>)\b'
+    why: >-
+      First names are enough to identify someone inside a company. Examples use
+      fictional people.
+
+  - name: "internal path or host"
+    re: '(/mnt/c/Users|\b10\.\d{1,3}\.\d{1,3}\.\d{1,3}\b|\b192\.168\.\d{1,3}\.\d{1,3}\b|<internal-dir>)'
+    why: >-
+      A workspace path says where you work and often who you are. Use RFC 5737
+      documentation ranges for addresses: 192.0.2.0/24, 198.51.100.0/24,
+      203.0.113.0/24.
+
+footer: |
+  A name list only ever catches the last thing somebody noticed. The anecdote
+  gate in check-markers.sh is the half that catches what this one misses.

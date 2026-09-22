@@ -1,0 +1,68 @@
+# Corpus project configuration. Copy to your workspace and fill in.
+# `build.py` reads this; every document the corpus carries is a row below,
+# so the config is the build and a new release is a re-run.
+
+product: "<Product name>"
+
+# Used verbatim in every part header, so a retrieved chunk says what it is about.
+# Two sentences at most. Say what the product is and who operates it.
+product_sentence: >-
+  <Product> is <what it is>. <One sentence on what an operator does with it.>
+
+# Appears at the foot of every part header. Pin the version the corpus describes.
+version_line: "_<Product> <version> released <date>. It is the current generally available release._"
+
+# Which platform profile to build under. See ../platforms/. Use `generic` until
+# you have measured yours; it assumes nothing and verifies with the reach probe.
+platform: generic
+
+# Bytes of extracted text, overriding whatever the profile sets. The invariant is
+# that every part of every source stays retrievable; this is what that costs on
+# your platform. Do not raise it without re-measuring.
+ceiling: 60000
+
+# Rewrites applied to every document during the build, whatever format it
+# arrived in.
+redaction_substitutions: redaction-substitutions.yaml
+
+# Gates run over the built files by scan.py. Nothing uploads until both come
+# back clean or every match has been read and recorded as a known false
+# positive. The build holds generated documents to these too.
+scan_patterns:
+  - redaction-patterns.yaml
+  - voice-patterns.yaml
+
+# Interpreter for the PDF converter, if pymupdf lives in a virtualenv.
+# python: .venv/bin/python
+# pdf_python: .venv/bin/python
+
+documents:
+  # --- an assembled markdown or text file, cut at heading boundaries ----------
+  - slug: User-Guide
+    kind: split
+    in: sources/user-guide.md
+    title: "<Product> User Guide"
+    areas: "installation, configuration, operation and troubleshooting"
+    level: 2          # heading level to cut at
+    max_level: 4      # how deep to go when one section is oversize
+    # start_at: '^## 1: '            # drop front matter before this line
+    # drop_section: '^18: Command'   # drop a whole section by heading
+    # note: "Chapter 18 is published separately."
+
+  # --- a PDF: headings are rebuilt from its own bookmark tree ----------------
+  - slug: Hardware-Guide
+    kind: pdf
+    in: sources/hardware-guide.pdf
+    title: "<Product> Hardware Guide"
+    areas: "installation, wiring, and hardware specifications"
+    level: 2
+    max_level: 4
+    start_at: '^## 1'
+
+  # --- a bundled OpenAPI spec plus hand-authored fragments -------------------
+  - slug: API-Reference
+    kind: openapi
+    in: sources/api-bundled.yaml
+    parts: api-reference-parts/      # fragments + overrides.yaml live here
+    title: "<Product> REST API Reference"
+    areas: "the base URL, authentication, and every published operation"
