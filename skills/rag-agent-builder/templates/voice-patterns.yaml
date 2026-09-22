@@ -1,0 +1,47 @@
+name: "Corpus voice scan"
+
+# Prose that is factually correct and still wrong to put in a corpus, because
+# the agent reads source documents to a customer verbatim and reproduces the
+# register it finds. This file is generic; these patterns transfer unchanged.
+#
+# The finding behind it: an agent whose instructions explicitly forbade all of
+# the below did them anyway, because its source documents demonstrated them.
+
+patterns:
+  - name: "corrects another document"
+    re: '\b(?:is wrong|are wrong|has been corrected|older material|other (?:material|documentation)|some (?:internal )?(?:specifications|documents)|inconsisten|contradict)\b'
+    why: >-
+      Naming a conflict re-broadcasts the false claim in the act of denying it.
+      Correct the fact silently and state it once.
+
+  - name: "instructs the reader"
+    re: '\b(?:never say|do not (?:say|demo|promise|describe|cross|read|use)|say it plainly|lead with|be precise about|answer directly)\b'
+    why: >-
+      A source document states facts. Imperatives belong in the agent
+      instructions, which are never quoted to a customer.
+
+  - name: "volunteers unrelated gaps"
+    re: '\b(?:closed none of the gaps|what a .{0,20}review will find missing|also worth noting that we (?:do not|cannot))\b'
+    why: >-
+      An absence belongs once, in the document that owns the topic. Appending a
+      gap list to a document about something else is how it reaches an answer
+      that did not ask for it.
+
+  - name: "deal mechanics"
+    re: '\b(?:unit economics|the deal stalls|surface this early|growing deal size|displacement opening)\b'
+    why: "Selling motion, not product fact."
+
+  - name: "talk track or messaging framework"
+    re: '\b(?:where we win|how to compete|talk track|objection handling|how should I pitch|three ways to open)\b'
+    why: >-
+      Enablement material passes every other check and still does not belong in
+      a product corpus, because its genre is instructions to a seller.
+
+  - name: "roadmap or futures"
+    re: '\b(?:on the roadmap|next release will|we plan to|targeted for)\b'
+    why: "Timing is a conversation, not a document."
+
+footer: |
+  This catches phrasing, not genre. A document that is wholly enablement
+  material passes every pattern above and still does not belong in the corpus.
+  A read still has to sit behind the sweep.
