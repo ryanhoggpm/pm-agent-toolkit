@@ -21,8 +21,12 @@ Read path. The API token is Enterprise-gated and may not be available, so the
 record is exported from an authenticated browser tab and read from disk. When a
 token exists, --url fetches the same record and nothing else changes.
 
-  # In the browser, on the agent page, then save the result as agent.json:
-  #   const j = await (await fetch('/d/api/goai/custom_gpts?cgid=CGID')).json();
+  # In the browser, on the agent page. Set RECORD_URL to whichever endpoint
+  # your platform serves the agent's own record from; the network tab shows it
+  # when the page loads. Save the result as agent.json.
+  #
+  #   const RECORD_URL = '...';                       // your platform's
+  #   const j = await (await fetch(RECORD_URL)).json();
   #   const e = new TextEncoder(), out = [];
   #   (function w(n){ if (n && typeof n === 'object') {
   #     if (!Array.isArray(n)) {

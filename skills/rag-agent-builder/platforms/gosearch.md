@@ -87,22 +87,19 @@ Verify and deprecate are the only documented levers for influencing which source
 are admin-gated. Without them the only remedy for a source producing wrong answers is deleting
 it.
 
-## Internal API notes
+## Reading the agent's own record
 
-Readable from an authenticated browser tab without a token:
+Chunk counts come from the agent's record, which an authenticated browser session can read.
+`scripts/check-chunk-counts.py` carries the export snippet in its docstring and takes byte counts
+rather than bodies, so the export stays small.
 
-- `/d/api/goai/custom_gpts_search` lists agents with a stable `static_id`
-- `/d/api/goai/custom_gpts?cgid=<id>` returns one agent, sources and metadata included
-- `/d/api/goai/v2/response` is the chat endpoint; streams SSE, needs an `X-CSRF-Token`
-- `/d/api/answers` lists curated answers
-- `/d/api/search` is workspace search, useful for proving a chunk is indexed
+**Draft ids change on every save.** Whatever id you capture, never record a draft id as a stable
+identifier; agents carry a separate id that survives edits.
 
-**Draft ids change on every save.** Never record a `cgid` as an identifier; look agents up by
-`static_id`.
-
-The published Agents API is read-only. An Enterprise API token additionally unlocks
-`GET /uploaded-files` for chunk counts and `POST /documents` for pushing pre-split content at a
-documented 16,384 characters per document.
+The published Agents API is read-only. An Enterprise API token additionally unlocks a files
+endpoint for chunk counts and a documents endpoint for pushing pre-split content at a documented
+16,384 characters per document, which is the one place a caller controls splitting instead of
+relying on the platform's own chunker.
 
 ## What to raise with an admin
 
