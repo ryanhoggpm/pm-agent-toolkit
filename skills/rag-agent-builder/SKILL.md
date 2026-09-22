@@ -1,6 +1,6 @@
 ---
 name: rag-agent-builder
-description: Build and maintain a retrieval-grounded knowledge agent from product documentation: design the corpus, split oversized sources into retrievable parts, scan for redaction and voice problems, prove after upload that the agent can actually read every part, and run an evaluation set before sharing it. Use when the user says "build a knowledge agent", "the agent gives confident wrong answers", "split this corpus", or "rag-agent-builder". Works on any RAG platform via a profile in platforms/. Do NOT use for querying an agent that already works, or for writing the source documentation itself; run /tech-writer on that.
+description: 'Build and maintain a retrieval-grounded knowledge agent from product documentation: design the corpus, split oversized sources into retrievable parts, scan for redaction and voice problems, prove after upload that the agent can actually read every part, and run an evaluation set before sharing it. Use when the user says "build a knowledge agent", "the agent gives confident wrong answers", "split this corpus", or "rag-agent-builder". Works on any RAG platform via a profile in platforms/. Do NOT use for querying an agent that already works, or for writing the source documentation itself; run /tech-writer on that.'
 aliases:
   - rab
 ---
