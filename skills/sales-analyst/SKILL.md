@@ -1,7 +1,7 @@
 ---
 name: sales-analyst
 description: Analyze multi-year sales pivot tables into YoY revenue, unit, and ASP trends, lifecycle classification, external market-event correlation, and Invest/Maintain/Harvest/Exit portfolio verdicts with a data quality audit. Use when the user says "analyze this sales data", "run sales-analyst", "why did revenue move", "which products should we invest in", or shares a revenue or unit pivot table. Do NOT use for pipeline forecasting or single-deal analysis; it interprets shipped historical revenue and unit data only.
-argument-hint: "[product-line] [fiscal-year(s)]"
+compatibility: Works in Chat, Cowork, and Claude Code. Spreadsheet analysis needs code execution.
 ---
 
 # Sales Analyst
@@ -10,7 +10,7 @@ Correlate internal revenue and unit data with external market forces to explain 
 
 Three hard rules, in order:
 
-1. **Sensitivity gate before any analysis.** Scan incoming data for customer/account/reseller names, account-attributed revenue, or PII. If found, stop and point at the masking workflow in `rules/sensitive-data.md`; proceed only after the user confirms the data is masked or explicitly accepts sending it unmasked. Aggregates by family, units by SKU, ASPs, and regional totals are safe.
+1. **Sensitivity gate before any analysis.** Scan incoming data for customer/account/reseller names, account-attributed revenue, or PII. If found, stop and recommend masking first: replace each real name with a consistent pseudonym, keep the mapping file outside anything shared, and analyze only the masked copy (the workspace's `rules/sensitive-data.md` has the full workflow when present). Proceed only after the user confirms the data is masked or explicitly accepts sending it unmasked. Aggregates by family, units by SKU, ASPs, and regional totals are safe.
 2. **Scope before running.** More than 4 product families or 5+ years: offer to start with one family or period, then expand.
 3. **Confidence is always labeled.** Every hypothesis carries High / Medium / Hypothesis. Nothing speculative gets stated as fact.
 

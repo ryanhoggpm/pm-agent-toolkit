@@ -1,6 +1,7 @@
 ---
 name: panel-builder
 description: Assembles and runs on-demand expert panels, a composition layer over whatever agent libraries you have installed. Charters a team through a guided intake (job to be done, roster, interaction mode, success criteria), generates persona members where no library agent fits, and executes sessions in one of five modes (specialist-consult, weighted-panel, review-board, persona-interview, board-session). Use when the user says "assemble a panel of experts", "I need a board of directors", "interview my user personas", "get this reviewed from multiple perspectives" with a custom roster, or "/panel-builder". Do NOT use for pressure-testing marketing drafts against a fixed buyer panel; that standing panel is /creative-agency.
+compatibility: Claude Code or Cowork (runs panel seats as subagents and saves charters to the workspace).
 ---
 
 # Panel Builder

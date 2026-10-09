@@ -1,7 +1,7 @@
 ---
 name: html-render
-description: Render existing content (a markdown file or the conversation's output) as a self-contained, brand-themed HTML file with a gradient header, stat cards, callouts, and themed tables, then run a pre-save QA pass that catches templated-looking output. Use when the user says "render as HTML", "make this HTML", "branded output", "create a deck", "slides", or passes an --html flag. Do NOT use to write or restructure content; it renders what already exists, and asks before any restructuring a format demands.
-argument-hint: "[content or file path] [--template report|analysis|brief|presentation]"
+description: 'Render existing content (a markdown file or the conversation''s output) as a self-contained, brand-themed HTML file with a gradient header, stat cards, callouts, and themed tables, then run a pre-save QA pass that catches templated-looking output. Use when finished content needs to become a shareable HTML page: "render this as HTML", "make this HTML", "branded version of this report", or an --html flag. Do NOT use to write new content or build a slide deck from scratch; it renders what already exists, and asks before any restructuring a format demands.'
+compatibility: Works in Chat, Cowork, and Claude Code.
 ---
 
 # HTML Render

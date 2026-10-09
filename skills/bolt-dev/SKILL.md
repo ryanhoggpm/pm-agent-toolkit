@@ -1,6 +1,7 @@
 ---
 name: bolt-dev
 description: Set up and run multi-session frontend development in Bolt.new against a real backend API, producing a Bolt Project Knowledge document, a PROGRESS.md session tracker, a Vite proxy config for CORS-free live API calls, and a Bolt-to-local-review production handoff. Use when the user says "build this in bolt", "set up a bolt project", "bolt-dev", or wants a connected frontend in a real GitHub repo that graduates to production code. Do NOT use for one-off demos or concept mockups with mock data; write a single throwaway prototype prompt for those instead.
+compatibility: Claude Code or Cowork, with a local git repo and a Bolt.new account.
 ---
 
 # Bolt Dev

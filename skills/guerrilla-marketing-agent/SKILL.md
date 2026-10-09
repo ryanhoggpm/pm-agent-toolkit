@@ -1,6 +1,7 @@
 ---
 name: guerrilla-marketing-agent
-description: 'Zero-budget marketing intelligence and content drafting for a product line: a weekly SERP, news, and community sweep that diffs against your baseline and surfaces 3 concrete actions, plus draft modes for blogs, competitor-comparison pages, social posts, FAQ schema, and customer emails. Use when the user says "run the marketing monitor", "what are competitors publishing", "draft a comparison page", "draft a blog post", or on a weekly cadence. Do NOT use for pressure-testing finished copy against buyer personas; run /creative-agency on drafts before they publish.'
+description: 'Zero-budget marketing intelligence and content drafting for a product line: a weekly SERP, news, and community sweep that diffs against your baseline and surfaces 3 concrete actions, plus draft modes for blogs, competitor-comparison pages, social posts, FAQ schema, and customer emails. Use when the user says "run the marketing monitor", "what are competitors publishing", "draft a comparison page", "draft an SEO blog post against a competitor", or on a weekly cadence. Do NOT use for pressure-testing finished copy against buyer personas; run /creative-agency on drafts before they publish.'
+compatibility: Works in Chat, Cowork, and Claude Code. Web search improves SERP and competitor monitoring.
 ---
 
 # Guerrilla Marketing Agent
@@ -42,7 +43,7 @@ The news sweep alone: dated bullets plus 1-2 content-opportunity callouts. For w
 
 ## Writing rules for all content
 
-Practitioner audience: write for the people who run the gear, not for buyers of slideware. Lead with the answer. Specific numbers, real tool names. Apply the workspace style rules (`rules/writing-style.md`). Comparison tables score honestly; conceding two rows you genuinely lose buys credibility for the rows you win.
+Practitioner audience: write for the people who run the gear, not for buyers of slideware. Lead with the answer. Specific numbers, real tool names. Apply the workspace style rules (`.claude/rules/writing-style.md` or project instructions) when they exist. Comparison tables score honestly; conceding two rows you genuinely lose buys credibility for the rows you win.
 
 ## Worked example (fictional)
 

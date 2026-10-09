@@ -32,7 +32,7 @@ except Exception:
 
 TIMESTAMP=$(date -u +"%Y-%m-%d %H:%M UTC" 2>/dev/null) || TIMESTAMP="unknown"
 
-LOG_FILE=".claude/logs/skill-usage.log"
+LOG_FILE="${CLAUDE_PROJECT_DIR:-.}/.claude/logs/skill-usage.log"
 mkdir -p "$(dirname "$LOG_FILE")" 2>/dev/null || true
 printf "%s\t%s\t%s\n" "$TIMESTAMP" "$SKILL_NAME" "$SKILL_ARGS" >> "$LOG_FILE" 2>/dev/null || true
 

@@ -1,6 +1,7 @@
 ---
 name: creative-agency
 description: Run a marketing draft through a simulated focus group of weighted buyer personas, producing per-persona reactions (what each would cut or share), a conflict-resolving synthesis, a shipped-claims check, and a revised draft calibrated to audience weighting. Use when the user says "run this through creative-agency", "focus group this draft", "how would customers react to this copy", "test these headlines", or before publishing any customer-facing content. Do NOT use for internal communications or PRD review; it reviews outbound marketing content against buyer personas only.
+compatibility: Works in Chat, Cowork, and Claude Code.
 ---
 
 # Creative Agency
@@ -47,7 +48,7 @@ What's landing across personas; the specific conflict where one persona's needs 
 
 ### 3. Revised draft
 
-Rewrite incorporating the synthesis, at the requested tone. Flag deliberate tensions (serving the 40% persona at slight cost to the 25%) in bracketed notes after the draft, never inline. Apply the workspace writing rules (`rules/writing-style.md`) and any banned-word list the user's panel or style rules define.
+Rewrite incorporating the synthesis, at the requested tone. Flag deliberate tensions (serving the 40% persona at slight cost to the 25%) in bracketed notes after the draft, never inline. Apply the workspace writing rules (`.claude/rules/writing-style.md` or project instructions, when they exist) and any banned-word list the user's panel or style rules define.
 
 ## Tone calibration
 
@@ -101,4 +102,4 @@ Before presenting the output, verify:
 ## Handoff
 
 - **Before this:** `/context-search` for current positioning and any prior review of the same content; a revised draft that contradicts the messaging pillars trades one problem for another.
-- **After this:** publish, and when the user reports real audience reaction, log where the panel's prediction missed (per `rules/system-learning.md`); persona files improve the same way skills do.
+- **After this:** publish, and when the user reports real audience reaction, log where the panel's prediction missed (in the workspace learning log, if one exists); persona files improve the same way skills do.

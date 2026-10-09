@@ -1,6 +1,7 @@
 ---
 name: create-skill
 description: Build a new Claude skill to a 10-rule authoring standard (routing-engineered description, read-first table, shipped output template, exit checklist), or audit an existing skill against that standard. Use when the user says "make this a skill", "turn this workflow into a command", "build a skill for X", "review my skill", or catches themselves pasting the same instructions a second time. Do NOT use for one-off prompts or tasks that change shape every run; handle those directly in conversation.
+compatibility: Claude Code or Cowork with a writable workspace. In Chat it drafts the skill folder for you to zip and upload.
 ---
 
 # Create Skill
@@ -20,9 +21,9 @@ Two hard constraints, before anything else:
 | Skill scaffold | `templates/skill-template.md` | Folder layout and SKILL.md structure to copy |
 | Worked example | `references/worked-example.md` | Calibration: discovery depth, description shape, what the checklist catches |
 | Installed skills | `.claude/skills/`, installed plugins | Overlap with the proposed skill; conventions already in use |
-| Workspace conventions | project `CLAUDE.md`, `docs/workspace-setup.md` | Path defaults the new skill's read-first table should use |
+| Workspace conventions | project `CLAUDE.md` or project instructions | Path defaults the new skill's read-first table should use |
 
-If there's no project CLAUDE.md, use `context/` and `outputs/` as path defaults per workspace-setup.
+If there's no project CLAUDE.md, use `context/` and `outputs/` as path defaults.
 
 ## Workflow
 

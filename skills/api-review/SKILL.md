@@ -1,7 +1,7 @@
 ---
 name: api-review
 description: Review an OpenAPI spec for structural defects (wrong HTTP verbs, empty responses, broken security schemes), CRUD and documentation gaps, and coverage of stated product requirements, producing a severity-tagged report with a prioritized fix list. Use when the user says "review this spec", "run an api review", "check this OpenAPI file", "does the API cover the PRD", or points at a .yaml/.json API spec. Do NOT use for reviewing implementation code or probing a live API; this reviews the contract document only.
-argument-hint: "[path-to-openapi-spec.yaml] [optional-path-to-prd.md]"
+compatibility: Works in Chat, Cowork, and Claude Code. Filing findings as tickets needs a Jira, Linear, or GitHub connector.
 ---
 
 # API Review

@@ -17,8 +17,8 @@ name: <Human-readable name>
 description: <One sentence: what this agent does, for your own registry.>
 
 model:
-  id: claude-sonnet-5        # step up to claude-opus-5 only if run quality demands it
-  effort: high               # low | medium | high | xhigh | max
+  id: claude-opus-5-5       # or claude-sonnet-5-5 for high-volume, lower-stakes agents
+  effort: high               # low | medium | high | xhigh | max (Opus 5.5 defaults to medium)
 
 system: |
   [Identity, 2-3 sentences with the experience that shapes judgment.]
@@ -43,7 +43,7 @@ tools:
   - type: agent_toolset_20260401
     default_config:
       permission_policy:
-        type: always_allow
+        type: auto              # server runs, denies, or pauses each call; use always_ask for tighter gating
     configs:
       - name: bash
         permission_policy:

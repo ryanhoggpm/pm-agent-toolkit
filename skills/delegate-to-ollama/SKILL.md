@@ -1,9 +1,7 @@
 ---
 name: delegate-to-ollama
-description: Route a prompt to a local Ollama model and return the response inline, as a manual failover when cloud usage limits hit or when a draft must stay fully local. Use when the user says "delegate to ollama", "/dto", "run this locally", "ask the local model", or hits a rate limit mid-task. Do NOT use for tasks needing workspace file reads, tool calls, or multi-step agentic work; the local model gets only the prompt text you send it.
-aliases:
-  - ollama
-  - dto
+description: Route a prompt to a local Ollama model and return the response inline, as a manual failover when cloud usage limits hit or when a draft must stay fully local. Use when the user says "delegate to ollama", "run this locally", "ask the local model", or hits a rate limit mid-task. Do NOT use for tasks needing workspace file reads, tool calls, or multi-step agentic work; the local model gets only the prompt text you send it.
+compatibility: Claude Code, or Cowork running on your computer, with network access to an Ollama host. Not Chat.
 ---
 
 # Delegate to Ollama
@@ -25,11 +23,11 @@ Two rules up front:
 ## Usage
 
 ```
-/dto <prompt>                      default model
-/dto --model <name> <prompt>       specific model
-/dto --save <prompt>               also write to outputs/ollama/
-/dto --list                        show models on the instance
-/dto --test                        connectivity check
+/delegate-to-ollama <prompt>                      default model
+/delegate-to-ollama --model <name> <prompt>       specific model
+/delegate-to-ollama --save <prompt>               also write to outputs/ollama/
+/delegate-to-ollama --list                        show models on the instance
+/delegate-to-ollama --test                        connectivity check
 ```
 
 ## Workflow
@@ -61,7 +59,7 @@ curl -s "$OLLAMA_BASE_URL/api/chat" -H "Content-Type: application/json" -d '{
 }'
 ```
 
-Extract `.message.content`. On connection failure: report it plainly, suggest `/dto --test`, and offer the fallback model if the failure was a timeout.
+Extract `.message.content`. On connection failure: report it plainly, suggest `/delegate-to-ollama --test`, and offer the fallback model if the failure was a timeout.
 
 ### 4. Present
 
@@ -73,7 +71,7 @@ Refine here with full context, save to `outputs/`, or retry on a different model
 
 ## Worked example (fictional)
 
-A PM at Coppermine Systems, rate-limited mid-afternoon: `/dto Draft three subject lines for the fleet-migration announcement email`. The skill reads the config (default `qwen3-coder:30b` at `http://ollama.local:11434`), sends the prompt with the configured system prompt, and returns:
+A PM at Coppermine Systems, rate-limited mid-afternoon: `/delegate-to-ollama Draft three subject lines for the fleet-migration announcement email`. The skill reads the config (default `qwen3-coder:30b` at `http://ollama.local:11434`), sends the prompt with the configured system prompt, and returns:
 
 > **qwen3-coder:30b via Ollama:**
 > 1. Fleet migration opens June 3: what changes for your devices

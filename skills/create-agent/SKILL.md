@@ -1,6 +1,7 @@
 ---
 name: create-agent
 description: Designs and writes well-scoped working agents, either Claude Code subagents (.claude/agents/*.md) or Claude Managed Agents (API config), from a structured design interview covering scope-as-refusals, routing description, least-privilege tools and permission policies, output contract, self-verification, and a panel seat so every agent is usable standalone AND as a /panel-builder member. Use when the user says "create an agent", "I need a subagent for X", "turn this role into an agent", or when /panel-builder needs a working specialist no installed library covers. Do NOT use for advisory-only voices (use /panel-builder's persona schema) or repeatable workflows without their own context (use /create-skill).
+compatibility: Claude Code (writes subagents to .claude/agents/). Managed Agent configs can also be drafted in Chat or Cowork.
 ---
 
 # Create Agent
@@ -27,7 +28,7 @@ a Claude Code subagent or a Claude Managed Agent.
 | Subagent template | `templates/subagent-template.md` | Output shape for Claude Code agents |
 | Managed Agent template | `templates/managed-agent-template.yaml` | Output shape for API agents |
 | Existing agents | `.claude/agents/` | Don't duplicate; extend or point at what exists |
-| Panel persona schema | `/panel-builder`'s `templates/persona-schema.md` | The boundary: advisory voices go there, not here |
+| Panel persona schema | `/panel-builder`'s `templates/persona-schema.md`, if panel-builder is installed | The boundary: advisory voices go there, not here. Without it, apply the rule directly: an agent that only gives opinions and never acts is a persona, not an agent |
 
 ## Workflow
 

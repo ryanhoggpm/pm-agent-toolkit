@@ -1,8 +1,7 @@
 ---
 name: rag-agent-builder
 description: 'Build and maintain a retrieval-grounded knowledge agent from product documentation: design the corpus, split oversized sources into retrievable parts, scan for redaction and voice problems, prove after upload that the agent can actually read every part, and run an evaluation set before sharing it. Use when the user says "build a knowledge agent", "the agent gives confident wrong answers", "split this corpus", or "rag-agent-builder". Works on any RAG platform via a profile in platforms/. Do NOT use for querying an agent that already works, or for writing the source documentation itself; run /tech-writer on that.'
-aliases:
-  - rab
+compatibility: Claude Code, Cowork, or Chat with code execution. Scripts need Python 3 with PyYAML and pymupdf (see requirements.txt).
 ---
 
 # RAG agent builder
@@ -59,6 +58,8 @@ writing or restructuring any document.
 
 No project yet: run `init` and fill `project.yaml` and the redaction files before anything else.
 
+Scripts need Python 3 plus `pip install -r ${CLAUDE_SKILL_DIR}/requirements.txt`. `${CLAUDE_SKILL_DIR}` is this skill's folder; Claude Code and Cowork fill it in. In Chat's code-execution sandbox, run the same commands from the skill folder as `scripts/<name>`.
+
 ## Mode: `init <product>`
 
 Scaffold a project. Copies from `templates/`:
@@ -76,7 +77,7 @@ fill in the redaction patterns. Nothing else needs editing to get a first build.
 ## Mode: `build`
 
 ```
-python3 scripts/build.py --config project.yaml --out staging/<date>/files
+python3 ${CLAUDE_SKILL_DIR}/scripts/build.py --config project.yaml --out staging/<date>/files
 ```
 
 Reads `project.yaml` and produces every document's parts. Three document kinds:
@@ -101,8 +102,8 @@ Individual tools are usable directly when you need them: `split_corpus_file.py`,
 ## Mode: `scan`
 
 ```
-python3 scripts/scan.py --patterns redaction-patterns.yaml --path staging/<date>/files
-python3 scripts/scan.py --patterns voice-patterns.yaml     --path staging/<date>/files
+python3 ${CLAUDE_SKILL_DIR}/scripts/scan.py --patterns redaction-patterns.yaml --path staging/<date>/files
+python3 ${CLAUDE_SKILL_DIR}/scripts/scan.py --patterns voice-patterns.yaml     --path staging/<date>/files
 ```
 
 Both gate the upload. Nothing stages until both come back clean or every match has been read
@@ -119,12 +120,12 @@ it was written, and a miss looks exactly like a pass. See `references/field-note
 **The gate. Run it after every upload, before any eval.** Which check you run comes from the
 profile.
 
-**Generic, works anywhere** — measures retrieval directly rather than inferring it:
+**Generic, works anywhere**: measures retrieval directly rather than inferring it:
 
 ```
-python3 scripts/reach_probe.py --emit  --parts staging/<date>/files --out probes.json
+python3 ${CLAUDE_SKILL_DIR}/scripts/reach_probe.py --emit  --parts staging/<date>/files --out probes.json
 # ask the agent each question, save the replies
-python3 scripts/reach_probe.py --score --probes probes.json --answers answers.json
+python3 ${CLAUDE_SKILL_DIR}/scripts/reach_probe.py --score --probes probes.json --answers answers.json
 ```
 
 Each probe asks for a string from the **tail** of a part, because the tail is what a truncating
@@ -133,7 +134,7 @@ or first-chunk-only platform loses first.
 **Where the platform exposes chunk metadata** there is a faster path:
 
 ```
-python3 scripts/check-chunk-counts.py --record agent.json
+python3 ${CLAUDE_SKILL_DIR}/scripts/check-chunk-counts.py --record agent.json
 ```
 
 Every attached file must report `total_chunks == 1`. The script's docstring carries the browser
@@ -195,7 +196,7 @@ OpenAPI spec.
 that matters is what `verify` does next:
 
 > ```
-> $ python3 scripts/check-chunk-counts.py --record agent.json
+> $ python3 ${CLAUDE_SKILL_DIR}/scripts/check-chunk-counts.py --record agent.json
 > FAIL  CM-900-User-Guide-07.md
 >       14 chunks, about 7% reachable
 > ```

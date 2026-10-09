@@ -11,7 +11,7 @@ The rules exist because skills fail in predictable ways: they don't trigger, the
 Claude decides whether to load a skill from its name and description alone. The body never gets read if the description misses. So the description carries the routing load:
 
 - Sentence 1 says what the skill does and when to use it.
-- At least 3 trigger phrases, worded the way a user would actually type them.
+- The situations that should load it, described as intent categories ("when a PRD needs engineering tickets"), not a list of exact phrases. Current models route on meaning; quoted phrase lists overfit and miss paraphrases.
 - Exactly one boundary clause: "Do NOT use for X; use /other-skill instead" (or "handle directly"). One boundary keeps routing crisp; a pile of exclusions dilutes it.
 - Third person throughout. The description is read by a router, not a person.
 - Under 1024 characters.
@@ -27,7 +27,7 @@ Before generating anything, the skill names what to read. Format:
 | Source | Path | What to extract |
 |---|---|---|
 
-Paths use the [workspace conventions](../../../docs/workspace-setup.md): `context/` for the user's knowledge base, `outputs/` for generated work. State what to do when a listed file is missing (ask, assume, or proceed with a flag). A skill without a read-first table produces boilerplate that ignores the workspace.
+Paths use the workspace conventions: `context/` for the user's knowledge base, `outputs/` for generated work. State what to do when a listed file is missing (ask, assume, or proceed with a flag). A skill without a read-first table produces boilerplate that ignores the workspace.
 
 ### 4. Keep SKILL.md under 350 lines, constraints in the top 100
 
@@ -62,11 +62,13 @@ If the skill produces something costly to regenerate (a long document, a data pu
 - Folder name is kebab-case and matches the frontmatter `name:` exactly.
 - The file is named `SKILL.md`, case-sensitive.
 - YAML frontmatter opens and closes with `---`; no angle brackets inside frontmatter.
+- Frontmatter uses only the portable keys: `name`, `description`, `compatibility`, `license`, `metadata`, `allowed-tools`. claude.ai rejects an upload with any other key (`argument-hint`, `aliases`, `model`, `context`), so Claude Code-only fields stay out of skills meant to travel.
+- `compatibility` states where the skill works (Chat, Cowork, Claude Code) and what it needs (code execution, a connector, a local network host).
 - Description is 100 to 1024 characters and contains a routing boundary.
 - SKILL.md is 350 lines or fewer.
 - A read-first table, a `templates/` reference, and an exit checklist are present.
 
-Run the same checks locally before a PR: `scripts/lint-skills.sh`.
+If the skill lives in a repo with a lint script, run it before committing.
 
 ## Common failure modes
 

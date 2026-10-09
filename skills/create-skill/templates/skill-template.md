@@ -17,7 +17,8 @@ skills/<skill-name>/
 ```markdown
 ---
 name: [skill-name-kebab-case]
-description: [What it does and what "done" looks like, one sentence]. Use when the user says "[trigger 1]", "[trigger 2]", "[trigger 3]", or [situation trigger]. Do NOT use for [adjacent job it will be confused with]; use /[other-skill] instead.
+description: [What it does and what "done" looks like, one sentence]. Use when [situation 1], [situation 2], or [situation 3]. Do NOT use for [adjacent job it will be confused with]; use /[other-skill] instead.
+compatibility: [Where it works and what it needs, e.g. "Works in Chat, Cowork, and Claude Code" or "Claude Code only; needs git and the GitHub connector"]
 ---
 
 # [Skill Display Name]

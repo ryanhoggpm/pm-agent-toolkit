@@ -4,7 +4,7 @@
 
 echo "=== Session start ==="
 
-LOG=".claude/logs/skill-usage.log"
+LOG="${CLAUDE_PROJECT_DIR:-.}/.claude/logs/skill-usage.log"
 if [ -f "$LOG" ]; then
     COUNT=$(wc -l < "$LOG" 2>/dev/null || echo 0)
     echo "Recent skills (last 5 of $COUNT logged):"
@@ -14,7 +14,7 @@ else
 fi
 echo ""
 
-CHANGES=$(git status --short 2>/dev/null | head -8)
+CHANGES=$(git -C "${CLAUDE_PROJECT_DIR:-.}" status --short 2>/dev/null | head -8)
 if [ -n "$CHANGES" ]; then
     echo "Uncommitted changes:"
     echo "$CHANGES"

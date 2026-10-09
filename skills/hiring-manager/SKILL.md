@@ -1,6 +1,7 @@
 ---
 name: hiring-manager
 description: Full-cycle hiring support with EEOC guardrails built into every output; writes job descriptions, screens resumes against the JD, runs compliant candidate research, generates tailored interview questions, processes transcripts into debriefs, and builds advancement recommendations. Use when the user says "write a JD", "screen this resume", "prep me for the interview with X", "process this transcript", "who should we advance", or "show the hiring pipeline". Do NOT use for the candidate side of interviewing (prepping to BE interviewed) or for compensation benchmarking; handle those directly.
+compatibility: Works in Chat, Cowork, and Claude Code.
 ---
 
 # Hiring Manager

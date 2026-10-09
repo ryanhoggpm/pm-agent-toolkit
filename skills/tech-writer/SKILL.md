@@ -1,8 +1,7 @@
 ---
 name: tech-writer
 description: Draft, review, or rewrite technical documentation (release notes, user guides, quick-starts, upgrade guides, demo scripts, troubleshooting docs) so a real user can complete a real task without calling Support, enforcing workflow-focused structure over feature description. Use when the user says "write release notes", "draft a user guide", "review this doc", "rewrite this quick-start", or "tech-writer". Do NOT use for marketing copy or positioning content; run /creative-agency on those instead.
-aliases:
-  - tw
+compatibility: Works in Chat, Cowork, and Claude Code.
 ---
 
 # Tech Writer

@@ -1,12 +1,8 @@
 ---
 name: context-search
-description: Search prior work across the workspace's outputs/, context/, and memory folders before starting any task that might duplicate it, returning up to 15 ranked results with file paths, modified dates, and matching snippets. Use when the user says "have we already written about X", "find prior work on", "what did we decide about", "/cs", or before drafting a document that may already exist. Do NOT use for web research or code search; this searches the local markdown knowledge base only.
-aliases:
-  - cs
-allowed-tools:
-  - Read
-  - Glob
-  - Grep
+description: Search prior work across the workspace's outputs/, context/, and memory folders before starting any task that might duplicate it, returning up to 15 ranked results with file paths, modified dates, and matching snippets. Use when the user says "have we already written about X", "find prior work on", "what did we decide about", or before drafting a document that may already exist. Do NOT use for web research or code search; this searches the local markdown knowledge base only.
+allowed-tools: Read Glob Grep
+compatibility: Claude Code or Cowork, run inside a workspace folder (outputs/, context/). Not useful in Chat, which has no workspace to search.
 ---
 
 # Context Search
@@ -26,10 +22,10 @@ Search only; never modify anything. Results print to the conversation, formatted
 
 ```
 /context-search <terms>            multi-term AND search
-/cs <terms>                        alias
-/cs "exact phrase"                 phrase match
-/cs --strategy | --prds | --analyses <terms>    scope to one type
-/cs --recent <terms>               only files modified in the last 30 days
+/context-search <terms>                                      search everything
+/context-search "exact phrase"                               phrase match
+/context-search --strategy | --prds | --analyses <terms>     scope to one type
+/context-search --recent <terms>                             only files modified in the last 30 days
 ```
 
 ## Workflow
@@ -71,7 +67,7 @@ Per `templates/results-format.md`: `[TYPE] path (modified date)` plus the matchi
 
 ## Worked example (fictional)
 
-A PM at Coppermine Systems about to draft a pricing one-pager runs `/cs console pricing`:
+A PM at Coppermine Systems about to draft a pricing one-pager runs `/context-search console pricing`:
 
 ```
 ANALYSIS  outputs/analyses/fleet-api-pricing-brief.md  (2026-06-02)

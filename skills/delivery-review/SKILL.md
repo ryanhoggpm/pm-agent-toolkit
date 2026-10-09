@@ -1,7 +1,7 @@
 ---
 name: delivery-review
 description: Act as an AI product owner reviewing engineering delivery against committed scope by reading the scope of record live, harvesting recent commits and tracker tickets, mapping both to requirement IDs, flagging divergence in both directions, and drafting tracker-page updates for manual paste-in. Use when the user says "run the delivery review", "what did engineering actually ship", "dev progress review", or on a weekly cadence. Do NOT use for reviewing the quality of individual code changes; it reviews delivery against scope, not code.
-aliases: [dev-review]
+compatibility: Claude Code or Cowork, with a git repo and a tracker connector (Jira, Linear, or GitHub).
 ---
 
 # Delivery Review

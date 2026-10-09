@@ -61,7 +61,7 @@ The instructions said: *"Never cite certificate #5103."*
 
 Once the corpus itself was clean, that line was the only remaining source of `#5103` anywhere
 the agent could see. It began pre-emptively explaining, unprompted, why that certificate did not
-apply — raising a number no one had asked about and that no longer existed in any document.
+apply, raising a number no one had asked about and that no longer existed in any document.
 
 **The rule:** prohibitions describe the class, not the literal. State the correct certificate
 once, in the document that owns the topic, and say nothing about the old one.
