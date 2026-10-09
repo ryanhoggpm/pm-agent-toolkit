@@ -1,0 +1,12 @@
+{
+  "name": "panel-builder",
+  "description": "Assembles and runs on-demand expert panels, a composition layer over whatever agent libraries you have installed. Charters a team through a guided intake (job to be done, roster, interaction mode, success criteria), generates persona members where no library agent fits, and executes sessions in...",
+  "version": "0.2.0",
+  "author": {
+    "name": "Ryan Hogg",
+    "url": "https://github.com/ryanhoggpm"
+  },
+  "homepage": "https://github.com/ryanhoggpm/pm-agent-toolkit",
+  "repository": "https://github.com/ryanhoggpm/pm-agent-toolkit",
+  "license": "MIT"
+}

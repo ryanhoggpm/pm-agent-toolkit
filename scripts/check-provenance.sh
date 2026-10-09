@@ -26,7 +26,7 @@ BLOCKLIST=(
 
 fail=0
 for name in "${BLOCKLIST[@]}"; do
-  if [ -d "skills/$name" ] || [ -f "rules/$name.md" ] || [ -f "templates/$name.md" ]; then
+  if [ -d "plugins/$name" ] || compgen -G "plugins/*/skills/$name" >/dev/null || [ -f "rules/$name.md" ] || [ -f "templates/$name.md" ]; then
     echo "PROVENANCE VIOLATION: '$name' matches the non-redistributable blocklist"
     fail=1
   fi

@@ -17,3 +17,5 @@ jobs:
         run: bash scripts/check-markers.sh
       - name: Skill lint
         run: bash scripts/lint-skills.sh
+      - name: Package smoke test
+        run: bash scripts/package-skills.sh

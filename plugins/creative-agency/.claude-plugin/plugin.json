@@ -1,0 +1,12 @@
+{
+  "name": "creative-agency",
+  "description": "Run a marketing draft through a simulated focus group of weighted buyer personas, producing per-persona reactions (what each would cut or share), a conflict-resolving synthesis, a shipped-claims check, and a revised draft calibrated to audience weighting.",
+  "version": "0.2.0",
+  "author": {
+    "name": "Ryan Hogg",
+    "url": "https://github.com/ryanhoggpm"
+  },
+  "homepage": "https://github.com/ryanhoggpm/pm-agent-toolkit",
+  "repository": "https://github.com/ryanhoggpm/pm-agent-toolkit",
+  "license": "MIT"
+}

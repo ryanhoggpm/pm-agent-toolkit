@@ -1,0 +1,12 @@
+{
+  "name": "create-agent",
+  "description": "Designs and writes well-scoped working agents, either Claude Code subagents (.claude/agents/*.md) or Claude Managed Agents (API config), from a structured design interview covering scope-as-refusals, routing description, least-privilege tools and permission policies, output contract,...",
+  "version": "0.2.0",
+  "author": {
+    "name": "Ryan Hogg",
+    "url": "https://github.com/ryanhoggpm"
+  },
+  "homepage": "https://github.com/ryanhoggpm/pm-agent-toolkit",
+  "repository": "https://github.com/ryanhoggpm/pm-agent-toolkit",
+  "license": "MIT"
+}

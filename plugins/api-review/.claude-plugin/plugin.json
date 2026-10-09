@@ -1,0 +1,12 @@
+{
+  "name": "api-review",
+  "description": "Review an OpenAPI spec for structural defects (wrong HTTP verbs, empty responses, broken security schemes), CRUD and documentation gaps, and coverage of stated product requirements, producing a severity-tagged report with a prioritized fix list.",
+  "version": "0.2.0",
+  "author": {
+    "name": "Ryan Hogg",
+    "url": "https://github.com/ryanhoggpm"
+  },
+  "homepage": "https://github.com/ryanhoggpm/pm-agent-toolkit",
+  "repository": "https://github.com/ryanhoggpm/pm-agent-toolkit",
+  "license": "MIT"
+}

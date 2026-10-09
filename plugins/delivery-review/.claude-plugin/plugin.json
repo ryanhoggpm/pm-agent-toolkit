@@ -1,0 +1,12 @@
+{
+  "name": "delivery-review",
+  "description": "Act as an AI product owner reviewing engineering delivery against committed scope by reading the scope of record live, harvesting recent commits and tracker tickets, mapping both to requirement IDs, flagging divergence in both directions, and drafting tracker-page updates for manual paste-in.",
+  "version": "0.2.0",
+  "author": {
+    "name": "Ryan Hogg",
+    "url": "https://github.com/ryanhoggpm"
+  },
+  "homepage": "https://github.com/ryanhoggpm/pm-agent-toolkit",
+  "repository": "https://github.com/ryanhoggpm/pm-agent-toolkit",
+  "license": "MIT"
+}

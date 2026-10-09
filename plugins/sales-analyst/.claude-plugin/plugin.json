@@ -1,0 +1,12 @@
+{
+  "name": "sales-analyst",
+  "description": "Analyze multi-year sales pivot tables into YoY revenue, unit, and ASP trends, lifecycle classification, external market-event correlation, and Invest/Maintain/Harvest/Exit portfolio verdicts with a data quality audit.",
+  "version": "0.2.0",
+  "author": {
+    "name": "Ryan Hogg",
+    "url": "https://github.com/ryanhoggpm"
+  },
+  "homepage": "https://github.com/ryanhoggpm/pm-agent-toolkit",
+  "repository": "https://github.com/ryanhoggpm/pm-agent-toolkit",
+  "license": "MIT"
+}

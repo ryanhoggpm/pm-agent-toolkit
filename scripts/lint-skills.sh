@@ -4,10 +4,12 @@
 #   - description >= 100 chars and contains a routing boundary ("use /" pointer or "NOT")
 #   - SKILL.md <= 350 lines
 #   - has a read-first table, references a template, ends with an exit checklist
+#   - frontmatter keys limited to the Agent Skills spec (claude.ai upload rejects others)
+#   - name matches folder; compatibility present; no cross-skill paths; no em dashes
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
-[ -d skills ] || { echo "lint: OK (no skills yet)"; exit 0; }
+[ -d plugins ] || { echo "lint: OK (no plugins yet)"; exit 0; }
 
 fail=0
 
@@ -24,8 +26,11 @@ try:
 except ImportError:
     print("lint: PyYAML absent, skipping frontmatter parse"); sys.exit(0)
 
+import re
+ALLOWED = {"name", "description", "license", "compatibility", "metadata", "allowed-tools"}
+NAME = re.compile(r"[a-z0-9]+(-[a-z0-9]+)*")
 bad = 0
-for f in sorted(pathlib.Path("skills").glob("*/SKILL.md")):
+for f in sorted(pathlib.Path("plugins").glob("*/skills/*/SKILL.md")):
     text = f.read_text(encoding="utf-8")
     if not text.startswith("---"):
         print(f"LINT {f.parent.name}: no YAML frontmatter"); bad = 1; continue
@@ -41,6 +46,24 @@ for f in sorted(pathlib.Path("skills").glob("*/SKILL.md")):
         bad = 1; continue
     if not isinstance(meta, dict) or not meta.get("name") or not meta.get("description"):
         print(f"LINT {f.parent.name}: frontmatter needs both name and description")
+        bad = 1; continue
+    # claude.ai upload rejects any key outside the Agent Skills spec, so a
+    # Claude Code-only field (argument-hint, aliases, model) breaks the zip.
+    extra = set(meta) - ALLOWED
+    if extra:
+        print(f"LINT {f.parent.name}: frontmatter keys not portable to claude.ai: {sorted(extra)}")
+        bad = 1
+    if meta["name"] != f.parent.name or not NAME.fullmatch(meta["name"]):
+        print(f"LINT {f.parent.name}: name must be kebab-case and match the folder")
+        bad = 1
+    if len(meta["description"]) > 1024:
+        print(f"LINT {f.parent.name}: description over 1024 chars")
+        bad = 1
+    if not meta.get("compatibility"):
+        print(f"LINT {f.parent.name}: add a compatibility line (where it works, what it needs)")
+        bad = 1
+    elif len(meta["compatibility"]) > 500:
+        print(f"LINT {f.parent.name}: compatibility over 500 chars")
         bad = 1
 sys.exit(bad)
 PYEOF
@@ -58,7 +81,15 @@ while IFS= read -r f; do
   grep -qiE "read.first|What to extract" "$f" || { echo "LINT $name: no read-first table"; fail=1; }
   grep -qiE "templates/" "$f" || { echo "LINT $name: no template reference"; fail=1; }
   grep -qiE "exit checklist|before finishing" "$f" || { echo "LINT $name: no exit checklist"; fail=1; }
-done < <(find skills -name SKILL.md)
+done < <(find plugins -path "*/skills/*/SKILL.md")
+
+# Each skill must stand alone when zipped, so no links that climb out of its folder.
+if grep -rnE '\.\./\.\./' plugins/*/skills; then
+  echo "LINT: cross-skill relative paths found (lines above); each skill zips on its own"; fail=1
+fi
+if grep -rn $'\u2014' plugins rules docs README.md 2>/dev/null; then
+  echo "LINT: em dashes found (lines above)"; fail=1
+fi
 
 [ "$fail" -eq 1 ] && exit 1
 echo "lint: OK"

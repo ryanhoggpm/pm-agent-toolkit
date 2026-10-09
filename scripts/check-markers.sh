@@ -23,7 +23,7 @@ PATTERN="$GENERIC"
 [ -n "$LOCAL" ] && PATTERN="$GENERIC|$LOCAL"
 
 DIRS=""
-for d in skills plugins hooks rules docs examples README.md; do
+for d in plugins rules docs examples README.md .claude-plugin; do
   [ -e "$d" ] && DIRS="$DIRS $d"
 done
 [ -z "$DIRS" ] && { echo "markers: OK (nothing to scan)"; exit 0; }
