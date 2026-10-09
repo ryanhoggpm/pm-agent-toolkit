@@ -9,7 +9,7 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
-[ -d skills ] || { echo "lint: OK (no skills yet)"; exit 0; }
+[ -d plugins ] || { echo "lint: OK (no plugins yet)"; exit 0; }
 
 fail=0
 
@@ -30,7 +30,7 @@ import re
 ALLOWED = {"name", "description", "license", "compatibility", "metadata", "allowed-tools"}
 NAME = re.compile(r"[a-z0-9]+(-[a-z0-9]+)*")
 bad = 0
-for f in sorted(pathlib.Path("skills").glob("*/SKILL.md")):
+for f in sorted(pathlib.Path("plugins").glob("*/skills/*/SKILL.md")):
     text = f.read_text(encoding="utf-8")
     if not text.startswith("---"):
         print(f"LINT {f.parent.name}: no YAML frontmatter"); bad = 1; continue
@@ -81,13 +81,13 @@ while IFS= read -r f; do
   grep -qiE "read.first|What to extract" "$f" || { echo "LINT $name: no read-first table"; fail=1; }
   grep -qiE "templates/" "$f" || { echo "LINT $name: no template reference"; fail=1; }
   grep -qiE "exit checklist|before finishing" "$f" || { echo "LINT $name: no exit checklist"; fail=1; }
-done < <(find skills -name SKILL.md)
+done < <(find plugins -path "*/skills/*/SKILL.md")
 
 # Each skill must stand alone when zipped, so no links that climb out of its folder.
-if grep -rnE '\.\./\.\./' skills; then
+if grep -rnE '\.\./\.\./' plugins/*/skills; then
   echo "LINT: cross-skill relative paths found (lines above); each skill zips on its own"; fail=1
 fi
-if grep -rn $'\u2014' skills hooks rules docs README.md 2>/dev/null; then
+if grep -rn $'\u2014' plugins rules docs README.md 2>/dev/null; then
   echo "LINT: em dashes found (lines above)"; fail=1
 fi
 

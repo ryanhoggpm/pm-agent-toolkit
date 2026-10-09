@@ -1,0 +1,12 @@
+{
+  "name": "pm-system-layer",
+  "version": "0.2.0",
+  "description": "Session hooks for a skill workspace: logs skill usage, opens each session with recent skills and uncommitted work, re-surfaces context after compaction, and nudges design-feedback logging. Runs in Claude Code and Cowork.",
+  "author": {
+    "name": "Ryan Hogg",
+    "url": "https://github.com/ryanhoggpm"
+  },
+  "homepage": "https://github.com/ryanhoggpm/pm-agent-toolkit",
+  "repository": "https://github.com/ryanhoggpm/pm-agent-toolkit",
+  "license": "MIT"
+}

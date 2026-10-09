@@ -1,0 +1,31 @@
+{
+  "name": "pm-agent-toolkit",
+  "displayName": "PM Agent Toolkit (all)",
+  "description": "Installs every PM Agent Toolkit skill plus the system-layer hooks in one step. Install individual plugins instead to pick only what you need.",
+  "version": "0.2.0",
+  "author": {
+    "name": "Ryan Hogg",
+    "url": "https://github.com/ryanhoggpm"
+  },
+  "homepage": "https://github.com/ryanhoggpm/pm-agent-toolkit",
+  "repository": "https://github.com/ryanhoggpm/pm-agent-toolkit",
+  "license": "MIT",
+  "dependencies": [
+    "api-review",
+    "bolt-dev",
+    "context-search",
+    "create-agent",
+    "create-skill",
+    "creative-agency",
+    "delegate-to-ollama",
+    "delivery-review",
+    "guerrilla-marketing-agent",
+    "hiring-manager",
+    "html-render",
+    "panel-builder",
+    "rag-agent-builder",
+    "sales-analyst",
+    "tech-writer",
+    "pm-system-layer"
+  ]
+}

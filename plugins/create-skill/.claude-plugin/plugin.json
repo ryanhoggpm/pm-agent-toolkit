@@ -1,0 +1,12 @@
+{
+  "name": "create-skill",
+  "description": "Build a new Claude skill to a 10-rule authoring standard (routing-engineered description, read-first table, shipped output template, exit checklist), or audit an existing skill against that standard.",
+  "version": "0.2.0",
+  "author": {
+    "name": "Ryan Hogg",
+    "url": "https://github.com/ryanhoggpm"
+  },
+  "homepage": "https://github.com/ryanhoggpm/pm-agent-toolkit",
+  "repository": "https://github.com/ryanhoggpm/pm-agent-toolkit",
+  "license": "MIT"
+}

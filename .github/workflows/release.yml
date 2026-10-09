@@ -1,0 +1,29 @@
+name: release
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+jobs:
+  skill-zips:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Gates
+        env:
+          MARKER_PATTERNS: ${{ secrets.MARKER_PATTERNS }}
+        run: |
+          bash scripts/check-provenance.sh
+          bash scripts/check-markers.sh
+          bash scripts/lint-skills.sh
+      - name: Package one zip per skill
+        run: bash scripts/package-skills.sh
+      - name: Attach zips to the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release view "$GITHUB_REF_NAME" >/dev/null 2>&1 \
+            || gh release create "$GITHUB_REF_NAME" --title "$GITHUB_REF_NAME" --notes "Per-skill zips for claude.ai: Customize > Skills > Upload. See README for plugin installs."
+          gh release upload "$GITHUB_REF_NAME" dist/*.zip dist/SHA256SUMS --clobber

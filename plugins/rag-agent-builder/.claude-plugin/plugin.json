@@ -1,0 +1,12 @@
+{
+  "name": "rag-agent-builder",
+  "description": "Build and maintain a retrieval-grounded knowledge agent from product documentation: design the corpus, split oversized sources into retrievable parts, scan for redaction and voice problems, prove after upload that the agent can actually read every part, and run an evaluation set before sharing it.",
+  "version": "0.2.0",
+  "author": {
+    "name": "Ryan Hogg",
+    "url": "https://github.com/ryanhoggpm"
+  },
+  "homepage": "https://github.com/ryanhoggpm/pm-agent-toolkit",
+  "repository": "https://github.com/ryanhoggpm/pm-agent-toolkit",
+  "license": "MIT"
+}

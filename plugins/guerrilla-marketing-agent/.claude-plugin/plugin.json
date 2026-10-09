@@ -1,0 +1,12 @@
+{
+  "name": "guerrilla-marketing-agent",
+  "description": "Zero-budget marketing intelligence and content drafting for a product line: a weekly SERP, news, and community sweep that diffs against your baseline and surfaces 3 concrete actions, plus draft modes for blogs, competitor-comparison pages, social posts, FAQ schema, and customer emails.",
+  "version": "0.2.0",
+  "author": {
+    "name": "Ryan Hogg",
+    "url": "https://github.com/ryanhoggpm"
+  },
+  "homepage": "https://github.com/ryanhoggpm/pm-agent-toolkit",
+  "repository": "https://github.com/ryanhoggpm/pm-agent-toolkit",
+  "license": "MIT"
+}

@@ -1,0 +1,12 @@
+{
+  "name": "tech-writer",
+  "description": "Draft, review, or rewrite technical documentation (release notes, user guides, quick-starts, upgrade guides, demo scripts, troubleshooting docs) so a real user can complete a real task without calling Support, enforcing workflow-focused structure over feature description.",
+  "version": "0.2.0",
+  "author": {
+    "name": "Ryan Hogg",
+    "url": "https://github.com/ryanhoggpm"
+  },
+  "homepage": "https://github.com/ryanhoggpm/pm-agent-toolkit",
+  "repository": "https://github.com/ryanhoggpm/pm-agent-toolkit",
+  "license": "MIT"
+}

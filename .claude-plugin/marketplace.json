@@ -1,14 +1,112 @@
 {
   "name": "pm-agent-toolkit",
+  "description": "Skills for the technical PM. Each skill is its own plugin, so you install only the ones you want; pm-agent-toolkit installs them all.",
   "owner": {
     "name": "Ryan Hogg",
     "url": "https://github.com/ryanhoggpm"
   },
   "plugins": [
     {
+      "name": "api-review",
+      "source": "./plugins/api-review",
+      "description": "Review an OpenAPI spec for structural defects (wrong HTTP verbs, empty responses, broken security schemes), CRUD and documentation gaps, and coverage of stated product requirements, producing a severity-tagged report with a prioritized fix list.",
+      "category": "engineering"
+    },
+    {
+      "name": "bolt-dev",
+      "source": "./plugins/bolt-dev",
+      "description": "Set up and run multi-session frontend development in Bolt.new against a real backend API, producing a Bolt Project Knowledge document, a PROGRESS.md session tracker, a Vite proxy config for CORS-free live API calls, and a Bolt-to-local-review production handoff.",
+      "category": "prototyping"
+    },
+    {
+      "name": "context-search",
+      "source": "./plugins/context-search",
+      "description": "Search prior work across the workspace's outputs/, context/, and memory folders before starting any task that might duplicate it, returning up to 15 ranked results with file paths, modified dates, and matching snippets.",
+      "category": "workspace"
+    },
+    {
+      "name": "create-agent",
+      "source": "./plugins/create-agent",
+      "description": "Designs and writes well-scoped working agents, either Claude Code subagents (.claude/agents/*.md) or Claude Managed Agents (API config), from a structured design interview covering scope-as-refusals, routing description, least-privilege tools and permission policies, output contract,...",
+      "category": "agent-building"
+    },
+    {
+      "name": "create-skill",
+      "source": "./plugins/create-skill",
+      "description": "Build a new Claude skill to a 10-rule authoring standard (routing-engineered description, read-first table, shipped output template, exit checklist), or audit an existing skill against that standard.",
+      "category": "agent-building"
+    },
+    {
+      "name": "creative-agency",
+      "source": "./plugins/creative-agency",
+      "description": "Run a marketing draft through a simulated focus group of weighted buyer personas, producing per-persona reactions (what each would cut or share), a conflict-resolving synthesis, a shipped-claims check, and a revised draft calibrated to audience weighting.",
+      "category": "marketing"
+    },
+    {
+      "name": "delegate-to-ollama",
+      "source": "./plugins/delegate-to-ollama",
+      "description": "Route a prompt to a local Ollama model and return the response inline, as a manual failover when cloud usage limits hit or when a draft must stay fully local.",
+      "category": "workspace"
+    },
+    {
+      "name": "delivery-review",
+      "source": "./plugins/delivery-review",
+      "description": "Act as an AI product owner reviewing engineering delivery against committed scope by reading the scope of record live, harvesting recent commits and tracker tickets, mapping both to requirement IDs, flagging divergence in both directions, and drafting tracker-page updates for manual paste-in.",
+      "category": "delivery"
+    },
+    {
+      "name": "guerrilla-marketing-agent",
+      "source": "./plugins/guerrilla-marketing-agent",
+      "description": "Zero-budget marketing intelligence and content drafting for a product line: a weekly SERP, news, and community sweep that diffs against your baseline and surfaces 3 concrete actions, plus draft modes for blogs, competitor-comparison pages, social posts, FAQ schema, and customer emails.",
+      "category": "marketing"
+    },
+    {
+      "name": "hiring-manager",
+      "source": "./plugins/hiring-manager",
+      "description": "Full-cycle hiring support with EEOC guardrails built into every output; writes job descriptions, screens resumes against the JD, runs compliant candidate research, generates tailored interview questions, processes transcripts into debriefs, and builds advancement recommendations.",
+      "category": "people"
+    },
+    {
+      "name": "html-render",
+      "source": "./plugins/html-render",
+      "description": "Render existing content (a markdown file or the conversation's output) as a self-contained, brand-themed HTML file with a gradient header, stat cards, callouts, and themed tables, then run a pre-save QA pass that catches templated-looking output.",
+      "category": "documents"
+    },
+    {
+      "name": "panel-builder",
+      "source": "./plugins/panel-builder",
+      "description": "Assembles and runs on-demand expert panels, a composition layer over whatever agent libraries you have installed. Charters a team through a guided intake (job to be done, roster, interaction mode, success criteria), generates persona members where no library agent fits, and executes sessions in...",
+      "category": "agent-building"
+    },
+    {
+      "name": "rag-agent-builder",
+      "source": "./plugins/rag-agent-builder",
+      "description": "Build and maintain a retrieval-grounded knowledge agent from product documentation: design the corpus, split oversized sources into retrievable parts, scan for redaction and voice problems, prove after upload that the agent can actually read every part, and run an evaluation set before sharing it.",
+      "category": "agent-building"
+    },
+    {
+      "name": "sales-analyst",
+      "source": "./plugins/sales-analyst",
+      "description": "Analyze multi-year sales pivot tables into YoY revenue, unit, and ASP trends, lifecycle classification, external market-event correlation, and Invest/Maintain/Harvest/Exit portfolio verdicts with a data quality audit.",
+      "category": "analysis"
+    },
+    {
+      "name": "tech-writer",
+      "source": "./plugins/tech-writer",
+      "description": "Draft, review, or rewrite technical documentation (release notes, user guides, quick-starts, upgrade guides, demo scripts, troubleshooting docs) so a real user can complete a real task without calling Support, enforcing workflow-focused structure over feature description.",
+      "category": "documents"
+    },
+    {
+      "name": "pm-system-layer",
+      "source": "./plugins/pm-system-layer",
+      "description": "Session hooks for a skill workspace: logs skill usage, opens each session with recent skills and uncommitted work, re-surfaces context after compaction, and nudges design-feedback logging. Runs in Claude Code and Cowork.",
+      "category": "workspace"
+    },
+    {
       "name": "pm-agent-toolkit",
-      "source": "./",
-      "description": "Claude Code skills for the technical PM: API review, delivery review, composable expert panels, agent design, simulated buyer focus groups, and the system layer (hooks, rules) to run them."
+      "source": "./plugins/pm-agent-toolkit",
+      "description": "Installs every PM Agent Toolkit skill plus the system-layer hooks in one step. Install individual plugins instead to pick only what you need.",
+      "category": "bundle"
     }
   ]
 }

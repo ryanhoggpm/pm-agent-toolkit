@@ -1,0 +1,12 @@
+{
+  "name": "bolt-dev",
+  "description": "Set up and run multi-session frontend development in Bolt.new against a real backend API, producing a Bolt Project Knowledge document, a PROGRESS.md session tracker, a Vite proxy config for CORS-free live API calls, and a Bolt-to-local-review production handoff.",
+  "version": "0.2.0",
+  "author": {
+    "name": "Ryan Hogg",
+    "url": "https://github.com/ryanhoggpm"
+  },
+  "homepage": "https://github.com/ryanhoggpm/pm-agent-toolkit",
+  "repository": "https://github.com/ryanhoggpm/pm-agent-toolkit",
+  "license": "MIT"
+}
