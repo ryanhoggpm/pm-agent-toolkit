@@ -1,0 +1,6 @@
+# Copy to .markers.local (gitignored) and list the names that must never ship:
+# your employer, its products, competitors you track, colleagues, internal hosts.
+# One extended regex per line. In CI, store the same lines in the MARKER_PATTERNS secret.
+Coppermine
+CM-900
+Ironvine

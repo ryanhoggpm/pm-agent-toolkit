@@ -12,6 +12,8 @@ jobs:
       - name: Provenance gate
         run: bash scripts/check-provenance.sh
       - name: Company-marker gate
+        env:
+          MARKER_PATTERNS: ${{ secrets.MARKER_PATTERNS }}
         run: bash scripts/check-markers.sh
       - name: Skill lint
         run: bash scripts/lint-skills.sh
