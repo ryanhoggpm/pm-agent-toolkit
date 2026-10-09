@@ -1,6 +1,6 @@
 # The self-learning loop
 
-The workspace improves itself through two files. Copy this rule into your project and wire the hooks in `hooks/README.md`; the loop doesn't run on good intentions.
+The workspace improves itself through two files. Copy this rule into your project and install the `pm-system-layer` plugin (or wire its hooks by hand); the loop doesn't run on good intentions.
 
 ## What gets tracked
 

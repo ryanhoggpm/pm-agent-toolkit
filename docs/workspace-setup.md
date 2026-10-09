@@ -29,4 +29,6 @@ A minimal project CLAUDE.md that makes the toolkit's skills context-aware:
 - Writing style: [3-5 rules; see rules/writing-style.md in pm-agent-toolkit for a starting set]
 ```
 
+In claude.ai chat or Cowork, put the same lines in the project's instructions: chat doesn't read CLAUDE.md, and project instructions are where Cowork documents standing guidance.
+
 More detail in [the-system-layer.md](the-system-layer.md) for hooks and rules.

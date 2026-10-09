@@ -1,6 +1,6 @@
 # pm-agent-toolkit
 
-Claude Code skills for the technical PM: the workflows generic PM packs don't cover.
+Skills for the technical PM: the workflows generic PM packs don't cover. Each one installs on its own in Claude Code, Cowork, or claude.ai chat.
 
 ## The problem
 
@@ -10,7 +10,7 @@ I built these skills for my own job running a network infrastructure product lin
 
 ## What's inside
 
-*15 skills, all live. More land as they're generalized from daily use.*
+*16 skills, all live, each its own plugin. More land as they're generalized from daily use.*
 
 | Skill | What it does |
 |---|---|
@@ -26,13 +26,14 @@ I built these skills for my own job running a network infrastructure product lin
 | `hiring-manager` | Full-cycle hiring: JDs, screens, interview kits, decisions |
 | `html-render` | Renders finished content as self-contained branded HTML |
 | `panel-builder` | Composable expert panels: charter a team once, run it forever |
+| `pm-build` | Gated build orchestrator: why, spec, team, build, converge, with a decision at each gate |
 | `rag-agent-builder` | Knowledge agents that can actually read their corpus: split, scan, verify reach, eval |
 | `sales-analyst` | Multi-year sales data analysis with portfolio recommendations |
 | `tech-writer` | Workflow-focused technical docs: release notes, guides, demo scripts |
 
 Plus the system layer most skill collections skip:
 
-- **hooks/**: skill-usage logging, session-start context injection, post-compaction recovery
+- **[pm-system-layer](plugins/pm-system-layer/)**: hooks for skill-usage logging, session-start context injection, post-compaction recovery
 - **rules/**: writing style enforcement, path-scoped rules, a data-sensitivity workflow
 - **docs/**: workspace setup, skill authoring standard, the self-learning loop, and the [platform-diagnostic pattern](docs/platform-diagnostic-pattern.md), a design for read-only state-of-the-platform skills you build against your own stack
 
@@ -42,13 +43,18 @@ These skills get sharper with the right plugins, MCP servers, and agent librarie
 
 **Pairs well with:** [PleasePrompto/notebooklm-skill](https://github.com/PleasePrompto/notebooklm-skill) (third-party, MIT) for source-grounded Q&A over document sets you've loaded into NotebookLM. Install it from upstream; it's not vendored here because it isn't my work and it manages its own local auth state.
 
-## Quickstart
+## Install
 
-Three ways to install (pick one):
+Pick only the skills you want. Every skill is its own plugin in this repo's marketplace, and `pm-agent-toolkit` installs the whole set.
 
-1. **Plugin (Claude Code):** `/plugin marketplace add ryanhoggpm/pm-agent-toolkit`, then install the plugin.
-2. **Manual copy:** copy any `skills/<name>/` folder into your project's `.claude/skills/`.
-3. **claude.ai:** ZIP a skill folder, Settings → Capabilities → Skills → Upload.
+| Where you use Claude | How to install | What loads |
+|---|---|---|
+| **Claude Code** (terminal, IDE, desktop Code tab) | `/plugin marketplace add ryanhoggpm/pm-agent-toolkit`, then `/plugin install <skill>@pm-agent-toolkit` (or `pm-agent-toolkit@pm-agent-toolkit` for all) | Skills, hooks |
+| **claude.ai chat and Cowork** (web or desktop app) | **Customize > Plugins > Add > Add marketplace**, enter `ryanhoggpm/pm-agent-toolkit`, then add the plugins you want. Anything added here also syncs to Claude Code. | Chat: skills. Cowork: skills and hooks |
+| **One skill, no marketplace** | Download `<skill>.zip` from [Releases](https://github.com/ryanhoggpm/pm-agent-toolkit/releases), then **Customize > Skills > Add > Upload skill** | Skills |
+| **Manual copy** (Claude Code) | Copy `plugins/<skill>/skills/<skill>/` into your project's `.claude/skills/` | Skills |
+
+Each skill's `compatibility` line says where it works and what it needs; some need a workspace folder, code execution, or a local network host. Rules and CLAUDE.md are Claude Code features, so they install by copying (see [docs/workspace-setup.md](docs/workspace-setup.md)). The full matrix is in [docs/platform-support.md](docs/platform-support.md).
 
 Then set up your workspace folders per [docs/workspace-setup.md](docs/workspace-setup.md).
 
