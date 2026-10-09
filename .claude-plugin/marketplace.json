@@ -97,6 +97,12 @@
       "category": "documents"
     },
     {
+      "name": "pm-build",
+      "source": "./plugins/pm-build",
+      "description": "Gated orchestrator that takes a new build from why to a converged deliverable: PRD or brief, spec-kit spec, plan and team, build, and converge, with an approval gate after each phase and resumable state in BUILD.md.",
+      "category": "delivery"
+    },
+    {
       "name": "pm-system-layer",
       "source": "./plugins/pm-system-layer",
       "description": "Session hooks for a skill workspace: logs skill usage, opens each session with recent skills and uncommitted work, re-surfaces context after compaction, and nudges design-feedback logging. Runs in Claude Code and Cowork.",
